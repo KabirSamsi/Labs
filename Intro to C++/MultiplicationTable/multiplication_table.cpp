@@ -69,7 +69,11 @@ int main() {
     cin >> input;
     while (input != "Q" && input != "q") { //Continue building table until user quits program
         try { //Call table method, unless number is not an integer
-            printTable(stoi(input));
+            if (stoi(input) > 0) {
+                printTable(stoi(input));
+            } else {
+                cout << "Number must be greater than 0" << endl;
+            }
         } catch (exception& e) {
             cout << "Input must be an integer." << endl;
         }
