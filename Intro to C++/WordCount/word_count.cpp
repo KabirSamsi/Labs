@@ -78,12 +78,12 @@ int countWords(string phrase) {
     for (int i = 0; i < expression.length(); i++) {
         if (isIncluded(alphanumeric, tolower(expression[i]))) { //If character is alphanumeric, add it to word
             word += expression[i];
-        } else if (word != "") { //If the end of the word has been reached, and the word has some characters, add to vector
+        } else if (word != "") { //If the end of the word has been reached, and the word has some characters, increment wordcount
             wordCount ++;
             word = "";
         }
     }
-    return wordCount; //Return value - vector length
+    return wordCount;
 }
 
 /**
