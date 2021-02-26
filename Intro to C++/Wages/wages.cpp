@@ -11,7 +11,7 @@ using namespace std;
     @param name - Name of the Programmer
     @param courseInfo - Information about the Lab
     @return - none (void)
-    @author - Kabir Samsi
+    @author - Kabir SamsiA
 **/
 
 void printMeFirst(string name, string courseInfo) {

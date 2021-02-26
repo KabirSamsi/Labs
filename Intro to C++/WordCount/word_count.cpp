@@ -2,7 +2,6 @@
 #include <iostream>
 #include <ctime>
 #include <string>
-#include <vector>
 #include <ctype.h>
 
 using namespace std;
@@ -75,16 +74,16 @@ int countWords(string phrase) {
     string expression = phrase + " "; //Add space so that every word is evaluated
     string word = ""; //Temporary word, resets every time a non-alphanumeric expression is found
     string alphanumeric = "abcdefghijklmnopqrstuvwxyz0123456789"; //Only character that are allowed in a word
-    vector<string> words; //Stores all individual words
+    int wordCount = 0; //Stores count of individual words
     for (int i = 0; i < expression.length(); i++) {
         if (isIncluded(alphanumeric, tolower(expression[i]))) { //If character is alphanumeric, add it to word
             word += expression[i];
         } else if (word != "") { //If the end of the word has been reached, and the word has some characters, add to vector
-            words.push_back(word);
+            wordCount ++;
             word = "";
         }
     }
-    return words.size(); //Return value - vector length
+    return wordCount; //Return value - vector length
 }
 
 /**
@@ -125,5 +124,3 @@ int main() {
 
     return 0;
 }
-
-

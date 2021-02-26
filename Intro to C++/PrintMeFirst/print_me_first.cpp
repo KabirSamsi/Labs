@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/**
+/**w
   @Purpose - function prints out the name of the programmer, name of the program, and time the program was written
   @param name - Name of the Programmer
   @param courseInfo - Information about the Lab
