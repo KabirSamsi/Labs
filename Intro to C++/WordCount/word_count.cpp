@@ -112,15 +112,12 @@ int main() {
         cout << "There were " << countOccurrences(sentence, lower, true) << " lowercase letters." << endl;
         cout << "There were " << countOccurrences(sentence, upper, true) << " uppercase letters." << endl;
         cout << "There were " << countOccurrences(sentence, digits, false) << " digits." << endl;
-        cout << "There were " << (
-            sentence.length() - countOccurrences(sentence, lower, false) - countOccurrences(sentence, digits, false)
-        ) 
+        cout << "There were " << 
+            (sentence.length() - countOccurrences(sentence, lower, false) - countOccurrences(sentence, digits, false)) 
         << " other characters." << endl;
         cout << "There were " << countWords(sentence) << " words." << endl;
-
         cout << "\nEnter a sentence (Q to exit): ";
         getline(cin, sentence);
     }
-
     return 0;
 }
