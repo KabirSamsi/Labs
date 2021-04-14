@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 
 using namespace std;
@@ -20,7 +19,7 @@ void printMeFirst(string name, string courseInfo) {
 }
 
 /**
-    @Purpose - function merges two sorted vectors and then sorts them
+    @Purpose - function merges two sorted vectors in sorted order using a different version of insertion sort
     @param a - Sorted vector of integers
     @param b - Sorted vector of integers
     @return - Sorted vector of integers that combines the two vector parameters
@@ -28,24 +27,21 @@ void printMeFirst(string name, string courseInfo) {
 **/
 
 vector<int> merge_sorted(vector<int>  a, vector<int> b) {
-    vector<int> merged; //Vector stores the merged and sorted vector
+    vector<int> smallest, largest, merged; //Smallest and largest store a and b based on size; merged stores the merged vector
+    if (a.size() >= b.size()) largest = a, smallest = b; else largest = b, smallest = a;
+    largest.push_back(smallest[smallest.size()-1]+1); //Put largest element in larger vector; all smaller array elements get iterated over
 
-    //Concatenate vectors
-    for (int i = 0; i < a.size(); i++) {merged.push_back(a[i]);}
-    for (int i = 0; i < b.size(); i++) {merged.push_back(b[i]);}
-
-    //Selection sort algorithm sorts the two concatenated vectors
-    int temp;
-    for (int i = 0; i < merged.size(); i++) {
-        for (int j = 0; j < merged.size()-1; j++) {
-            if (merged[j] > merged[j+1]) {
-                temp = merged[j];
-                merged[j] = merged[j+1];
-                merged[j+1] = temp;
-            }
+    while (largest.size() > 1) { //Build merged vector until larger vector has only final (redundant) element
+        while (smallest.size() > 0) { //Iterate until larger value is reached, or smaller vector is empty
+            if (smallest[0] <= largest[0]) { //Add element if it is smaller than large vector value
+                merged.push_back(smallest[0]);
+                smallest.erase(smallest.begin());
+            } else break; //Otherwise break loop
         }
-    }   
-    return merged; //Return merged & sorted vector
+        merged.push_back(largest[0]); //After adding all the smaller b-values, add the smaller a-value and remove it from original vector
+        largest.erase(largest.begin());
+    }
+    return merged;
 }
 
 /**
@@ -72,10 +68,11 @@ int main() {
         cout << (i*i)+4 << " ";
         g2.push_back((i * i) + 4);
     }
+    cout << endl;
 
-    //Merge Vvctor and output result
+    //Merge Vector and output result
     vector<int> merged = merge_sorted(g1, g2);
-    cout << endl << "\nResult of interleaved merge of sorted a and b is\n";
+    cout << endl << "Result of interleaved merge of sorted a and b is" << endl;
     for (int i = 0; i < merged.size(); i++) cout << merged[i] << " ";
     cout << endl;
 

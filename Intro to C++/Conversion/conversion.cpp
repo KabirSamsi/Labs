@@ -74,7 +74,7 @@ int main() {
 
     do {
         selection = 0;
-        cout << "Choose a selection below:\n   1 - Fahrenheit to Celsius\n   2 - Celsius to Fahrenheit\n   3 - Quit" << endl; //List of prompts
+        cout << "Choose a selection below:\n   1 - Fahrenheit to Celsius\n   2 - Celsius to Fahrenheit\n   3 - Quit" << endl;
         cin >> selection;
         while (cin.fail()) { //While the entered prompt is not an integer, clear previous inputs and keep reprompting
             cin.clear();
