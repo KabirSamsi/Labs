@@ -1,25 +1,20 @@
+//Libraries and standard namesapce declaration
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <ctime>
 #include "printMeFirst.h"
 
 using namespace std;
 
-/*
-Purpose- Print out the programmer's information such as name, class information,
-and date/time when the program is run
+/**
+  @Purpose - function prints programmer's name, program's name, and program compilation date
+  @param name - Name of the Programmer
+  @param courseInfo - Information about the Lab
+  @return - none (void)
+  @author - Kabir Samsi
+**/
 
-@author Kabir Samsi
-@version 1.0 1/1/2016
-
-@param name 
-@param courseInfo 
-@return- none
-*/
-
-void printMeFirst(string name, string courseInfo)
-{
+void printMeFirst(string name, string courseInfo) {
 	cout << "Program written by: " << name << endl;
 	cout << "Course Info: " << courseInfo << endl;
 	time_t now = time(0);
